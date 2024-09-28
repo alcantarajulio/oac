@@ -14,22 +14,15 @@ func main() {
 		{1, 1, 1, 1},
 	}
 
-	// Loop para testar cada conjunto de dados
 	for _, d := range data {
-		// Calcular o bit de paridade
 		parity := calcParity(d)
 
-		// Adicionar o bit de paridade aos dados
 		dataWithParity := append(d, parity)
 
-		// Simular um erro invertendo um bit aleatório
 		errIndex := rand.Intn(len(dataWithParity))
 		dataWithParity[errIndex] = 1 - dataWithParity[errIndex]
-
-		// Verificar se o erro foi detectado
 		detected := verifyParity(dataWithParity)
 
-		// Exibir os resultados
 		fmt.Printf("Dados: %v\n", d)
 		fmt.Printf("Bit de paridade: %d\n", parity)
 		fmt.Printf("Dados com paridade: %v\n", dataWithParity)
@@ -38,7 +31,6 @@ func main() {
 	}
 }
 
-// Função para calcular o bit de paridade
 func calcParity(data []int) int {
 	parity := 0
 	for _, bit := range data {
@@ -47,7 +39,6 @@ func calcParity(data []int) int {
 	return parity
 }
 
-// Função para verificar a paridade
 func verifyParity(data []int) bool {
 	parity := 0
 	for _, bit := range data {
